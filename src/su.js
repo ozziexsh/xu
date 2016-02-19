@@ -1,12 +1,13 @@
 (function() {
-  function su(selector) {
+
+  window.su = function su(selector) {
     // Allows calling of su without the 'new' keyword
     if (this instanceof su) {
       this.el = document.querySelector(selector);
     } else {
       return new su(selector);
     }
-  }
+  };
 
   su.prototype.css = function(styles) {
     for (var property in styles) {
@@ -34,5 +35,18 @@
     this.el.addEventListener(event, callback);
   };
 
-  module.exports = su;
+  su.prototype.attr = function(attributes) {
+    // Getter
+    if (typeof attributes == 'string') {
+      return this.el[attributes];
+    }
+    // Setter
+    for (var attribute in attributes) {
+      this.el[attribute] = attributes[attribute];
+    }
+  };
+
+  su.prototype.text = function(text) {
+    this.el.innerHTML = text;
+  };
 })();
