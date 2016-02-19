@@ -1,12 +1,11 @@
 var gulp = require('gulp'),
 sourcemaps = require('gulp-sourcemaps'),
 rename = require('gulp-rename'),
-uglify = require('gulp-uglify'),
-copy = require('gulp-copy');
+uglify = require('gulp-uglify');
 
 gulp.task('copy', function() {
   return gulp.src('src/su.js')
-    .pipe(copy('dist/'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('uglify', ['copy'], function() {
