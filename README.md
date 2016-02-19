@@ -22,6 +22,16 @@ su('#dropdown').css({
 });
 ```
 
+# Developing
+
+su.js uses gulp to build
+
+After making changes in `src/su.js` run
+
+    gulp build
+
+And see changes reflected in `dist/`
+
 # Documentation
 
 su.js is currently in development. Below are a list of all the available functions
