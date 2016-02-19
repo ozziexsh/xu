@@ -12,70 +12,127 @@ Simply include su.js in your html file
 
 and reference `su` in your javascript
 
-    // Gives you the element
-    var nav = su('.nav');
+```javascript
+// Gives you the element
+var nav = su('.nav');
 
-    // Can also be accessed dynamically (no variable declaration)
-    su('#dropdown').css({
-      'display': 'block'
-    });
+// Can also be accessed dynamically (no variable declaration)
+su('#dropdown').css({
+  'display': 'block'
+});
+```
 
-
-## Documentation
+# Documentation
 
 su.js is currently in development. Below are a list of all the available functions
 
-### su
+## su
 
 Returns the specified DOM object
 
 Usage:
 
-    su(selector);
+```javascript
+su(selector);
+```
 
 Example:
 
-    su('.nav');
-    su('#nav');
-    su('[data-nav]');
+```javascript
+su('.nav');
+su('#nav');
+su('[data-nav]');
+```
 
-### css
+## css
 
 Add styling to an element
 
 Usage:
 
-    su(selector).css(properties: object);
+```javascript
+su(selector).css(properties: object);
+```
 
 Example:
 
-    su('.nav').css({
-      'display': 'block',
-      'position': 'relative',
-      'top': '50px',
-      'background': 'green'
-    });
+```javascript
+su('.nav').css({
+  'display': 'block',
+  'position': 'relative',
+  'top': '50px',
+  'background': 'green'
+});
+```
 
-### setClass
+## setClass
 
 Override the elements class names with the ones provided
 
 Usage:
 
-    su(selector).setClass(classes: string);
+```javascript  
+su(selector).setClass(classes: string);
+```
 
 Example:
 
-    su('.nav').setClass('nav navbar-default');
+```javascript
+su('.nav').setClass('nav navbar-default');
+```
 
-### appendClass
+## appendClass
 
 Append to the elements class names (not overriding)
 
 Usage:
 
-    su(selector).appendClass(classes: string);
+```javascript
+su(selector).appendClass(classes: string);
+```
 
 Example:
 
-    su('.nav').setClass('navbar-default navbar-static');
+```javascript
+su('.nav').setClass('navbar-default navbar-static');
+```
+
+## attr
+
+When passed a string, returns the attribute of the element specified
+
+When passed an object, sets the attributes specified on the element
+
+Usage:
+
+```javascript
+su(selector).attr(attributeName: string);
+
+su(selector).attr(attributes: object);
+```
+
+Example:
+
+```javascript
+su('img').attr('src'); //returns src attribute i.e 'img/grass.png'
+
+su('img').attr({
+  src: 'img/water.png'
+});
+```
+
+## text
+
+Replaces the text of the element
+
+Usage:
+
+```javascript
+su(selector).text(newText: string)
+```
+
+Example:
+
+```javascript
+su('.alert').text('Be careful!');
+```
