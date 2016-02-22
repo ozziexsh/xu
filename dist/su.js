@@ -1,9 +1,9 @@
 (function() {
 
-  window.su = function su(selector) {
+  window.su = function(selector) {
     // Allows calling of su without the 'new' keyword
     if (this instanceof su) {
-      this.el = document.querySelector(selector);
+      this.el = document.querySelectorAll(selector);
     } else {
       return new su(selector);
     }
