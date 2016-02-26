@@ -38,7 +38,7 @@ su.js is currently in development. Below are a list of all the available functio
 
 ## su
 
-Returns the specified DOM object
+Returns an array of all elements matching the selector
 
 Usage:
 
