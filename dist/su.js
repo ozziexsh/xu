@@ -1,5 +1,4 @@
 (function() {
-
   window.su = function(selector) {
     // Allows calling of su without the 'new' keyword
     if (this instanceof su) {
@@ -10,43 +9,58 @@
   };
 
   su.prototype.css = function(styles) {
-    for (var property in styles) {
-      this.el.style[property] = styles[property];
+    for(var i=0; i<this.el[i].length;i++) {
+      for (var property in styles) {
+        this.el[i].style[property] = styles[property];
+      }
     }
   };
 
   su.prototype.setClass = function(cl) {
-    this.el.className = cl;
-  };
-
-  su.prototype.appendClass = function(cl) {
-    this.el.className += ' ' + cl;
-  };
-
-  su.prototype.hasClass = function(cl) {
-    if (this.el.className.indexOf(cl) > -1) {
-      return true;
-    } else {
-      return false;
+    for(var i=0; i<this.el[i].length;i++) {
+      this.el[i].className = cl;
     }
   };
 
+  su.prototype.appendClass = function(cl) {
+    for(var i=0; i<this.el[i].length;i++) {
+      this.el[i].className += ' ' + cl;
+    }
+  };
+
+  su.prototype.hasClass = function(cl) {
+    for(var i=0; i<this.el[i].length;i++) {
+      if (this.el[i].className.indexOf(cl) == -1) {
+        return false; // Immediately return, no class found in the set of matched objects.
+      }
+    }
+    return true; // Made it through the loop above without returning, all objects have said class
+  };
+
   su.prototype.on = function(event, callback) {
-    this.el.addEventListener(event, callback);
+    for(var i=0; i<this.el[i].length;i++) {
+      this.el[i].addEventListener(event, callback);
+    }
   };
 
   su.prototype.attr = function(attributes) {
     // Getter
     if (typeof attributes == 'string') {
-      return this.el[attributes];
+      for(var i=0; i<this.el[i].length;i++) {
+        return this.el[i][attributes];
+      }
     }
     // Setter
     for (var attribute in attributes) {
-      this.el[attribute] = attributes[attribute];
+      for(var i=0; i<this.el[i].length;i++) {
+        this.el[i][attribute] = attributes[attribute];
+      }
     }
   };
 
   su.prototype.text = function(text) {
-    this.el.innerHTML = text;
+    for(var i=0; i<this.el[i].length;i++) {
+      this.el[i].innerHTML = text;
+    }
   };
 })();
