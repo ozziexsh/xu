@@ -1,6 +1,6 @@
 {
   "name": "xu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight DOM manipulator + ajax library",
   "repository": {
     "type": "git",
@@ -8,7 +8,10 @@
   },
   "main": "dist/xu.min.js",
   "scripts": {},
-  "keywords": ["DOM", "ajax"],
+  "keywords": [
+    "DOM",
+    "ajax"
+  ],
   "author": {
     "name": "Ozzie Neher"
   },
