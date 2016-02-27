@@ -162,3 +162,31 @@ Example:
 ```javascript
 su('.alert').text('Be careful!');
 ```
+
+## ajax
+
+Basic GET/POST ajax calls. Returns a promise. Called without function parameters (no brackets)
+
+Usage:
+
+```javascript
+su.ajax(method: string, url: string, data: object).then(success: function, error: function);
+```
+
+Example:
+
+```javascript
+su.ajax('GET', 'https://reddit.com/.json')
+  .then(function(response) {
+    console.log(response);
+  }, function(error) {
+    console.log(error);
+  });
+
+su.ajax('POST', 'http://example.com/api/login', {username: 'joe', password: 'bob'})
+  .then(function(response) {
+    console.log(response);
+  }, function(error) {
+    console.log(error);
+  });
+```
