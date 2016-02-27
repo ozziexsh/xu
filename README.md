@@ -107,6 +107,22 @@ Example:
 su('.nav').setClass('navbar-default navbar-static');
 ```
 
+## removeClass
+
+Removes the class specified from the selected element
+
+Usage:
+
+```javascript
+su(selector).removeClass(className: string);
+```
+
+Example:
+
+```javascript
+su('img').removeClass('img-responsive');
+```
+
 ## attr
 
 When passed a string, returns the attribute of the element specified
