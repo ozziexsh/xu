@@ -1,6 +1,8 @@
 # su.js
 
-A lightweight javascript library to do basic DOM updates inspired by jQuery
+A lightweight (4KB!) javascript library to do basic DOM updates, and basic ajax calls (GET/POST) 
+
+Inspired by jQuery
 
 ## Usage
 
