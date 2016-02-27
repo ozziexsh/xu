@@ -73,4 +73,30 @@
       this.el[i].innerHTML = text;
     }
   };
+
+  su.ajax = function(method, url, data) {
+    return new Promise(function(resolve, reject) {
+      var http = new XMLHttpRequest();
+
+      http.open(method.toUpperCase(), url, true);
+
+      http.onreadystatechange = function() {
+        if (http.readyState == XMLHttpRequest.DONE) {
+          if (http.status == 200) {
+            resolve(JSON.parse(http.responseText));
+          } else {
+            reject(Error('Server responded with a status of: ' + http.status));
+          }
+        }
+      }
+
+      if (method.toUpperCase() == 'POST') {
+        http.setRequestHeader('Content-type', 'application/json')
+        data = data || '';
+        data = JSON.stringify(data);
+      }
+
+      http.send(data);
+    });
+  }
 })();
