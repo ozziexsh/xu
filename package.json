@@ -8,7 +8,7 @@
   },
   "main": "dist/xu.min.js",
   "scripts": {},
-  "keywords": ["javascript", "DOM", "ajax", "su"],
+  "keywords": ["DOM", "ajax"],
   "author": {
     "name": "Ozzie Neher"
   },
