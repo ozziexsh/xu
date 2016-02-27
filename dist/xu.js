@@ -1,15 +1,15 @@
 (function() {
-  var su = (function() {
-    var su = function(selector) {
+  var xu = (function() {
+    var xu = function(selector) {
       // Allows calling of su without the 'new' keyword
-      if (this instanceof su) {
+      if (this instanceof xu) {
         this.el = document.querySelectorAll(selector);
       } else {
-        return new su(selector);
+        return new xu(selector);
       }
     };
 
-    su.prototype.css = function(styles) {
+    xu.prototype.css = function(styles) {
       for(var i=0;i<this.el.length;i++) {
         for (var property in styles) {
           this.el[i].style[property] = styles[property];
@@ -17,19 +17,19 @@
       }
     };
 
-    su.prototype.setClass = function(cl) {
+    xu.prototype.setClass = function(cl) {
       for(var i=0;i<this.el.length;i++) {
         this.el[i].className = cl;
       }
     };
 
-    su.prototype.appendClass = function(cl) {
+    xu.prototype.appendClass = function(cl) {
       for(var i=0;i<this.el.length;i++) {
         this.el[i].className += ' ' + cl;
       }
     };
 
-    su.prototype.hasClass = function(cl) {
+    xu.prototype.hasClass = function(cl) {
       for(var i=0;i<this.el.length;i++) {
         if (this.el[i].className.indexOf(cl) == -1) {
           return false; // Immediately return, no class found in the set of matched objects.
@@ -38,7 +38,7 @@
       return true; // Made it through the loop above without returning, all objects have said class
     };
 
-    su.prototype.removeClass = function(cl) {
+    xu.prototype.removeClass = function(cl) {
       for (var i = 0; i < this.el.length; i++) {
         var classes = this.el[i].className.split(' ');
         if (classes.indexOf(cl) != -1) {
@@ -48,13 +48,13 @@
       }
     };
 
-    su.prototype.on = function(event, callback) {
+    xu.prototype.on = function(event, callback) {
       for(var i=0;i<this.el.length;i++) {
         this.el[i].addEventListener(event, callback);
       }
     };
 
-    su.prototype.attr = function(attributes) {
+    xu.prototype.attr = function(attributes) {
       // Getter
       if (typeof attributes == 'string') {
         for(var i=0;i<this.el.length;i++) {
@@ -69,13 +69,13 @@
       }
     };
 
-    su.prototype.text = function(text) {
+    xu.prototype.text = function(text) {
       for(var i=0;i<this.el.length;i++) {
         this.el[i].innerHTML = text;
       }
     };
 
-    su.ajax = function(method, url, data) {
+    xu.ajax = function(method, url, data) {
       return new Promise(function(resolve, reject) {
         var http = new XMLHttpRequest();
 
@@ -101,12 +101,12 @@
       });
     };
 
-    return su;
+    return xu;
   })();
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = su;
+    module.exports = xu;
   } else {
-    window.su = su;
+    window.xu = xu;
   }
 })();

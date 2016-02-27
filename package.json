@@ -1,12 +1,12 @@
 {
-  "name": "su-js",
+  "name": "xu",
   "version": "0.1.0",
   "description": "A lightweight DOM manipulator + ajax library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nehero/su.js"
+    "url": "git+https://github.com/nehero/xu"
   },
-  "main": "dist/su.min.js",
+  "main": "dist/xu.min.js",
   "scripts": {},
   "keywords": ["javascript", "DOM", "ajax", "su"],
   "author": {
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nehero/su.js/issues"
+    "url": "https://github.com/nehero/xu/issues"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

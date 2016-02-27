@@ -1,44 +1,44 @@
-# su.js
+# xu.js
 
 A lightweight (4KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
 
 ## Usage
 
-Either grab `su` from the `dist/` folder in the repo or
+Either grab `xu` from the `dist/` folder in the repo or
 
-`npm install --save su-js`
+`npm install --save xu`
 
 then either
 
-`var su = require('su-js')`
+`var xu = require('xu')`
 
 (for browserify/webpack users)
 
 or
 
-include `su.js` in your html file
+include `xu.js` in your html file
 
 ```html
-<script src="su.min.js"></script>
+<script src="xu.min.js"></script>
 ```
 
-and reference `su` in your javascript
+and reference `xu` in your javascript
 
 ```javascript
 // Gives you the element
-var nav = su('.nav');
+var nav = xu('.nav');
 
 // Can also be accessed dynamically (no variable declaration)
-su('#dropdown').css({
+xu('#dropdown').css({
   'display': 'block'
 });
 ```
 
 # Developing
 
-su.js uses gulp to build
+xu.js uses gulp to build
 
-After making changes in `src/su.js` run
+After making changes in `src/xu.js` run
 
     gulp build
 
@@ -46,7 +46,7 @@ And see changes reflected in `dist/`
 
 # Documentation
 
-su.js is currently in development. Below are a list of all of the (currently) available functions
+xu.js is currently in development. Below are a list of all of the (currently) available functions
 
 * css
 * setClass
@@ -58,22 +58,22 @@ su.js is currently in development. Below are a list of all of the (currently) av
 * text
 * ajax
 
-## su
+## xu
 
 Returns an array of all elements matching the selector
 
 Usage:
 
 ```javascript
-su(selector);
+xu(selector);
 ```
 
 Example:
 
 ```javascript
-su('.nav');
-su('#nav');
-su('[data-nav]');
+xu('.nav');
+xu('#nav');
+xu('[data-nav]');
 ```
 
 ## css
@@ -83,13 +83,13 @@ Add styling to an element
 Usage:
 
 ```javascript
-su(selector).css(properties: object);
+xu(selector).css(properties: object);
 ```
 
 Example:
 
 ```javascript
-su('.nav').css({
+xu('.nav').css({
   'display': 'block',
   'position': 'relative',
   'top': '50px',
@@ -104,13 +104,13 @@ Override the elements class names with the ones provided
 Usage:
 
 ```javascript  
-su(selector).setClass(classes: string);
+xu(selector).setClass(classes: string);
 ```
 
 Example:
 
 ```javascript
-su('.nav').setClass('nav navbar-default');
+xu('.nav').setClass('nav navbar-default');
 ```
 
 ## appendClass
@@ -120,13 +120,13 @@ Append to the elements class names (not overriding)
 Usage:
 
 ```javascript
-su(selector).appendClass(classes: string);
+xu(selector).appendClass(classes: string);
 ```
 
 Example:
 
 ```javascript
-su('.nav').setClass('navbar-default navbar-static');
+xu('.nav').setClass('navbar-default navbar-static');
 ```
 
 ## removeClass
@@ -136,29 +136,29 @@ Removes the class specified from the selected element
 Usage:
 
 ```javascript
-su(selector).removeClass(className: string);
+xu(selector).removeClass(className: string);
 ```
 
 Example:
 
 ```javascript
-su('img').removeClass('img-responsive');
+xu('img').removeClass('img-responsive');
 ```
 
 ## hasClass
 
-Returns true or false if the class is present in the su instance
+Returns true or false if the class is present in the xu instance
 
 Usage:
 
 ```javascript
-su(selector).hasClass(className: string)
+xu(selector).hasClass(className: string)
 ```
 
 Example:
 
 ```javascript
-if (su('.nav').hasClass('nav')) {
+if (xu('.nav').hasClass('nav')) {
   /* the element has the class */
 } else {
   /* ... */
@@ -174,17 +174,17 @@ When passed an object, sets the attributes specified on the element
 Usage:
 
 ```javascript
-su(selector).attr(attributeName: string);
+xu(selector).attr(attributeName: string);
 
-su(selector).attr(attributes: object);
+xu(selector).attr(attributes: object);
 ```
 
 Example:
 
 ```javascript
-su('img').attr('src'); //returns src attribute i.e 'img/grass.png'
+xu('img').attr('src'); //returns src attribute i.e 'img/grass.png'
 
-su('img').attr({
+xu('img').attr({
   src: 'img/water.png'
 });
 ```
@@ -196,36 +196,36 @@ Replaces the text of the element
 Usage:
 
 ```javascript
-su(selector).text(newText: string)
+xu(selector).text(newText: string)
 ```
 
 Example:
 
 ```javascript
-su('.alert').text('Be careful!');
+xu('.alert').text('Be careful!');
 ```
 
 ## ajax
 
-Basic GET/POST ajax calls. Returns a promise. Called without function parameters on su (no brackets)
+Basic GET/POST ajax calls. Returns a promise. Called without function parameters on xu (no brackets)
 
 Usage:
 
 ```javascript
-su.ajax(method: string, url: string, data: object).then(success: function, error: function);
+xu.ajax(method: string, url: string, data: object).then(success: function, error: function);
 ```
 
 Example:
 
 ```javascript
-su.ajax('GET', 'https://reddit.com/.json')
+xu.ajax('GET', 'https://reddit.com/.json')
   .then(function(response) {
     console.log(response);
   }, function(error) {
     console.log(error);
   });
 
-su.ajax('POST', 'http://example.com/api/login', {username: 'joe', password: 'bob'})
+xu.ajax('POST', 'http://example.com/api/login', {username: 'joe', password: 'bob'})
   .then(function(response) {
     console.log(response);
   }, function(error) {
