@@ -3,7 +3,6 @@
     // Allows calling of su without the 'new' keyword
     if (this instanceof su) {
       this.el = document.querySelectorAll(selector);
-      console.log(this.el);
     } else {
       return new su(selector);
     }
@@ -36,6 +35,16 @@
       }
     }
     return true; // Made it through the loop above without returning, all objects have said class
+  };
+
+  su.prototype.removeClass = function(cl) {
+    for (var i = 0; i < this.el.length; i++) {
+      var classes = this.el[i].className.split(' ');
+      if (classes.indexOf(cl) != -1) {
+        classes.splice(classes.indexOf(cl), 1);
+        this.el[i].className = classes.join(' ');
+      }
+    }
   };
 
   su.prototype.on = function(event, callback) {
