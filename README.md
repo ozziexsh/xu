@@ -1,15 +1,25 @@
 # su.js
 
-A lightweight (4KB!) javascript library to do basic DOM updates, and basic ajax calls (GET/POST) 
-
-Inspired by jQuery
+A lightweight (4KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
 
 ## Usage
 
-Simply include su.js in your html file
+Either grab `su` from the `dist/` folder in the repo or
+
+`npm install --save su-js`
+
+then either
+
+`var su = require('su-js')`
+
+(for browserify/webpack users)
+
+or
+
+include `su.js` in your html file
 
 ```html
-<script src="su.js"></script>
+<script src="su.min.js"></script>
 ```
 
 and reference `su` in your javascript
@@ -36,7 +46,17 @@ And see changes reflected in `dist/`
 
 # Documentation
 
-su.js is currently in development. Below are a list of all the available functions
+su.js is currently in development. Below are a list of all of the (currently) available functions
+
+* css
+* setClass
+* appendClass
+* removeClass
+* hasClass
+* attr
+* on
+* text
+* ajax
 
 ## su
 
@@ -125,6 +145,26 @@ Example:
 su('img').removeClass('img-responsive');
 ```
 
+## hasClass
+
+Returns true or false if the class is present in the su instance
+
+Usage:
+
+```javascript
+su(selector).hasClass(className: string)
+```
+
+Example:
+
+```javascript
+if (su('.nav').hasClass('nav')) {
+  /* the element has the class */
+} else {
+  /* ... */
+}
+```
+
 ## attr
 
 When passed a string, returns the attribute of the element specified
@@ -167,7 +207,7 @@ su('.alert').text('Be careful!');
 
 ## ajax
 
-Basic GET/POST ajax calls. Returns a promise. Called without function parameters (no brackets)
+Basic GET/POST ajax calls. Returns a promise. Called without function parameters on su (no brackets)
 
 Usage:
 

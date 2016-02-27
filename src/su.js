@@ -1,5 +1,4 @@
 (function() {
-
   var su = (function() {
     var su = function(selector) {
       // Allows calling of su without the 'new' keyword

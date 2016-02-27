@@ -2,13 +2,20 @@
   "name": "su-js",
   "version": "0.1.0",
   "description": "A lightweight DOM manipulator + ajax library",
-  "main": "dist/su.min.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nehero/su.js"
   },
+  "main": "dist/su.min.js",
+  "scripts": {},
   "keywords": ["javascript", "DOM", "ajax", "su"],
-  "author": "Ozzie Neher",
+  "author": {
+    "name": "Ozzie Neher"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nehero/su.js/issues"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
