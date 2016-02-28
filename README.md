@@ -1,6 +1,6 @@
 # xu.js
 
-A lightweight (4KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
+A lightweight (2KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
 
 ## Usage
 
@@ -231,4 +231,28 @@ xu.ajax('POST', 'http://example.com/api/login', {username: 'joe', password: 'bob
   }, function(error) {
     console.log(error);
   });
+```
+
+## each
+
+Iterate over arrays/objects with ease
+
+Usage:
+
+```javascript
+xu.each(object, callback(key, value));
+
+xu.each(array, callback(index, value));
+```
+
+Example:
+
+```javascript
+xu.each([1, 2, 3, 4, 5], function(index, value) {
+  console.log(index + ': ' + value);
+});
+
+xu.each({name: 'bob', age: 32}, function(key, value) {
+  console.log(key + ' = ' + value);
+});
 ```

@@ -38,6 +38,14 @@
       return true; // Made it through the loop above without returning, all objects have said class
     };
 
+    xu.prototype.classNames = function() {
+      classes = [];
+      for(var i=0;i<this.el.length;i++) {
+        classes.push(this.el[i].className);
+      }
+      return classes;
+    }
+
     xu.prototype.removeClass = function(cl) {
       for (var i = 0; i < this.el.length; i++) {
         var classes = this.el[i].className.split(' ');
@@ -75,6 +83,13 @@
       }
     };
 
+    xu.prototype.each = function(callback) {
+      for (var i = 0; i < this.el.length; i++) {
+        // How to return instance of xu element???
+        // callback(i, this.el[i]);
+      }
+    };
+
     xu.ajax = function(method, url, data) {
       return new Promise(function(resolve, reject) {
         var http = new XMLHttpRequest();
@@ -99,6 +114,20 @@
 
         http.send(data);
       });
+    };
+
+    xu.each = function(collection, callback) {
+      if (typeof collection == 'array') {
+        for (var i = 0; i < collection.length; i++) {
+          callback(i, collection[i]);
+        }
+      }
+
+      if (typeof collection == 'object') {
+        for (var key in collection) {
+          callback(key, collection[key]);
+        }
+      }
     };
 
     return xu;
