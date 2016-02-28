@@ -57,6 +57,7 @@ xu.js is currently in development. Below are a list of all of the (currently) av
 * on
 * text
 * ajax
+* each
 
 ## xu
 
