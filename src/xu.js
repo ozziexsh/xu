@@ -78,8 +78,23 @@
     };
 
     xu.prototype.text = function(text) {
+      var currentText = [];
       for(var i=0;i<this.el.length;i++) {
-        this.el[i].innerHTML = text;
+        // if text is undefined then we are calling as a 'getter' so
+        // lets store an array of all of the elements text and return it to
+        // the user
+        if (typeof text == 'undefined') {
+          currentText.push(this.el[i].innerHTML);
+        } else {
+          this.el[i].innerHTML = text;
+        }
+      }
+
+      // Return just the first result if there is only one
+      if (currentText.length == 1) {
+        return currentText[0];
+      } else if (currentText.length > 1) {
+        return currentText;
       }
     };
 

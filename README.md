@@ -192,18 +192,26 @@ xu('img').attr({
 
 ## text
 
-Replaces the text of the element
+Replaces the text of the element, or if called without parameters returns the content of the element(s)
 
 Usage:
 
 ```javascript
-xu(selector).text(newText: string)
+// Getter
+xu(selector).text();
+
+// Setter
+xu(selector).text(newText: string);
 ```
 
 Example:
 
 ```javascript
 xu('.alert').text('Be careful!');
+
+// returns 'Be careful!'
+// If there are more than one '.alert' items it will return an array of strings
+console.log(xu('.alert').text());
 ```
 
 ## ajax
