@@ -1,4 +1,4 @@
-# xu.js
+# [xu.js](https://www.npmjs.com/package/xu)
 
 A lightweight (2KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
 
@@ -213,20 +213,22 @@ Basic GET/POST ajax calls. Returns a promise. Called without function parameters
 Usage:
 
 ```javascript
-xu.ajax(method: string, url: string, data: object).then(success: function, error: function);
+xu.ajax(options: object).then(success: function, error: function);
 ```
 
 Example:
 
 ```javascript
-xu.ajax('GET', 'https://reddit.com/.json')
-  .then(function(response) {
-    console.log(response);
-  }, function(error) {
-    console.log(error);
-  });
+xu.ajax({
+  method: 'get',
+  url: 'https://reddit.com/.json',
+  data: {
 
-xu.ajax('POST', 'http://example.com/api/login', {username: 'joe', password: 'bob'})
+  },
+  headers: {
+
+  }
+})
   .then(function(response) {
     console.log(response);
   }, function(error) {

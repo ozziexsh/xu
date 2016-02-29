@@ -90,11 +90,11 @@
       }
     };
 
-    xu.ajax = function(method, url, data) {
+    xu.ajax = function(options) {
       return new Promise(function(resolve, reject) {
         var http = new XMLHttpRequest();
 
-        http.open(method.toUpperCase(), url, true);
+        http.open(options.method.toUpperCase(), options.url, true);
 
         http.onreadystatechange = function() {
           if (http.readyState == XMLHttpRequest.DONE) {
@@ -106,13 +106,24 @@
           }
         }
 
-        if (method.toUpperCase() == 'POST') {
+        // So we're not sending an undefined dataset to the server
+        options.data = options.data || '';
+
+        // If the request type is post
+        // set header to default data type of json
+        if (options.method.toUpperCase() == 'POST') {
           http.setRequestHeader('Content-type', 'application/json')
-          data = data || '';
-          data = JSON.stringify(data);
+          options.data = JSON.stringify(options.data);
         }
 
-        http.send(data);
+        // Set all headers
+        if (options.headers) {
+          xu.each(options.headers, function(key, value) {
+            http.setRequestHeader(key, value);
+          });
+        }
+
+        http.send(options.data);
       });
     };
 
