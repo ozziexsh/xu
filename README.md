@@ -1,6 +1,6 @@
 # [xu.js](https://www.npmjs.com/package/xu)
 
-A lightweight (2KB!) javascript library to do basic DOM updates, and ajax calls (GET/POST)
+A lightweight (2KB!) javascript library to do basic DOM updates, and ajax calls
 
 ## Usage
 
@@ -57,6 +57,8 @@ xu.js is currently in development. Below are a list of all of the (currently) av
 * on
 * text
 * ajax
+* get
+* post
 * each
 
 ## xu
@@ -227,6 +229,7 @@ xu.ajax(options: object).then(success: function, error: function);
 Example:
 
 ```javascript
+// Default header for POST request is Content-type: application/json
 xu.ajax({
   method: 'get',
   url: 'https://reddit.com/.json',
@@ -237,6 +240,46 @@ xu.ajax({
 
   }
 })
+.then(function(response) {
+  console.log(response);
+}, function(error) {
+  console.log(error);
+});
+```
+
+## get
+
+Shorthand for xu.ajax get request
+
+Usage:
+
+```javascript
+xu.get(url: string).then(success: function, error: function);
+```
+
+```javascript
+xu.get('https://reddit.com/.json')
+  .then(function(response) {
+    console.log(response);
+  }, function(error) {
+    console.log(error);
+  });
+```
+
+## post
+
+Shorthand for xu.ajax post request
+
+Default Content-type of application/json
+
+Usage:
+
+```javascript
+xu.post(url: string, data: object, headers: object).then(success: function, error: function);
+```
+
+```javascript
+xu.post('http://example.com/submitForm', {username: 'joebob'}, {'Authorization', 'bearer <token>'})
   .then(function(response) {
     console.log(response);
   }, function(error) {

@@ -142,6 +142,22 @@
       });
     };
 
+    xu.get = function(url) {
+      return xu.ajax({
+        method: 'GET',
+        url: url
+      });
+    };
+
+    xu.post = function(url, data, headers) {
+      return xu.ajax({
+        method: 'POST',
+        url: url,
+        data: data,
+        headers: headers
+      });
+    };
+
     xu.each = function(collection, callback) {
       if (typeof collection == 'array') {
         for (var i = 0; i < collection.length; i++) {
