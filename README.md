@@ -1,5 +1,7 @@
 # [xu.js](https://www.npmjs.com/package/xu)
 
+[![npm version](https://badge.fury.io/js/xu.svg)](https://badge.fury.io/js/xu)
+
 A lightweight (2KB!) javascript library to do basic DOM updates, and ajax calls
 
 ## Usage
