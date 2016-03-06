@@ -109,7 +109,7 @@
     xu.prototype.each = function(callback) {
       for (var i = 0; i < this.el.length; i++) {
         // How to return instance of xu element???
-        callback(i, this.el[i]);
+        callback(i, new xu(this.el[i]));
       }
     };
 
