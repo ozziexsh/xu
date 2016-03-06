@@ -3,7 +3,15 @@
     var xu = function(selector) {
       // Allows calling of xu without the 'new' keyword
       if (this instanceof xu) {
-        this.el = document.querySelectorAll(selector);
+        if(typeof selector == 'object') {
+          // Constructor was passed a HTML Node,
+          // Manually assign this.el as an array containing the single Node,
+          // so as to emulate the results of document.querySelectorAll()
+          this.el = [selector];
+          return this;
+        } else {
+          this.el = document.querySelectorAll(selector);
+        }
       } else {
         return new xu(selector);
       }
@@ -44,7 +52,7 @@
         classes.push(this.el[i].className);
       }
       return classes;
-    }
+    };
 
     xu.prototype.removeClass = function(cl) {
       for (var i = 0; i < this.el.length; i++) {
@@ -101,7 +109,7 @@
     xu.prototype.each = function(callback) {
       for (var i = 0; i < this.el.length; i++) {
         // How to return instance of xu element???
-        // callback(i, this.el[i]);
+        callback(i, new xu(this.el[i]));
       }
     };
 
@@ -119,7 +127,7 @@
               reject(Error('Server responded with a status of: ' + http.status));
             }
           }
-        }
+        };
 
         // So we're not sending an undefined dataset to the server
         options.data = options.data || '';
@@ -127,7 +135,7 @@
         // If the request type is post
         // set header to default data type of json
         if (options.method.toUpperCase() == 'POST') {
-          http.setRequestHeader('Content-type', 'application/json')
+          http.setRequestHeader('Content-type', 'application/json');
           options.data = JSON.stringify(options.data);
         }
 
