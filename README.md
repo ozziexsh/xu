@@ -312,3 +312,22 @@ xu.each({name: 'bob', age: 32}, function(key, value) {
   console.log(key + ' = ' + value);
 });
 ```
+
+## xu.prototype.each
+
+Iterate over all elements matching that query. Callback function takes an element parameter that is an instance of `xu` so all of `xu`'s
+functions are accessible via that variable.
+
+Usage:
+
+```javascript
+xu(selector: string).each(callback: function(iterator, element));
+```
+
+Example:
+
+```javascript
+xu('li').each(function(iterator, element) {
+  console.log(iterator + ': ' + element.text());
+});
+```
