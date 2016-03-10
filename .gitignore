@@ -1,3 +1,4 @@
 node_modules/
 examples/playground.html
 .DS_Store
+npm-debug.log
