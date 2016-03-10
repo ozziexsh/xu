@@ -181,6 +181,8 @@ Usage:
 xu(selector).toggleClass(className: string);
 ```
 
+Example:
+
 ```javascript
 xu('#dropdown').toggleClass('expanded');
 ```
