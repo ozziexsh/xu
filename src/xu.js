@@ -64,6 +64,21 @@
       }
     };
 
+    xu.prototype.toggleClass = function(cl) {
+      for (var i = 0; i < this.el.length; i++) {
+        var classes = this.el[i].className.split(' ');
+        // The class is already with the element so remove it
+        if (classes.indexOf(cl) != -1) {
+          classes.splice(classes.indexOf(cl), 1);
+        } else {
+          //otherwise add it
+          classes.push(cl);
+        }
+        // Re-attach the classes back to the element
+        this.el[i].className = classes.join(' ');
+      }
+    };
+
     xu.prototype.on = function(event, callback) {
       for(var i=0;i<this.el.length;i++) {
         this.el[i].addEventListener(event, callback);

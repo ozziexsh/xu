@@ -55,6 +55,7 @@ xu.js is currently in development. Below are a list of all of the (currently) av
 * appendClass
 * removeClass
 * hasClass
+* toggleClass
 * attr
 * on
 * text
@@ -168,6 +169,20 @@ if (xu('.nav').hasClass('nav')) {
 } else {
   /* ... */
 }
+```
+
+## toggleClass
+
+Either adds or removes the specified class depending on if the element has it or not currently
+
+Usage:
+
+```javascript
+xu(selector).toggleClass(className: string);
+```
+
+```javascript
+xu('#dropdown').toggleClass('expanded');
 ```
 
 ## attr
